@@ -1,3 +1,27 @@
 body {
-    background-color: darkslategray;
+    color: darkslategray;
+    text-shadow: floralwhite 1px 1px;
+    font-family: cursive;
+    background-image: url(https://images.unsplash.com/photo-1523713990307-eb37e7e18240?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80);
+}
+header {
+    overflow: hidden;
+    background-color: gainsboro;
+    font-size: 45px;
+}
+#navbar a {
+    float: left;
+    font-size: 16px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: inherit;  
+  }
+
+
+li {
+    display: flex;
+    align-content: center;
+    font-size: 25px;
+    padding: 18px;
 }
