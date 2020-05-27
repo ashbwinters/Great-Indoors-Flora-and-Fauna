@@ -1,19 +1,27 @@
 const houseplantURL = "http://localhost:3000/houseplants";
-const homediv = document.getElementById("home-page");
-const floradiv = document.getElementById('flora-page');
-const myGardendiv = document.getElementById("")
-const showPlant = document.getElementById('show-plant');
+const homeDiv = document.getElementById("home-page");
+const floraDiv = document.getElementById('flora-page');
+const myGardenDiv = document.getElementById("my-garden-page")
+const showPlantDiv = document.getElementById('show-plant');
 
+home()
 
 function home () {
-    
+    console.log("I am being called")
+    floraDiv.style.display = "none";
+    myGardenDiv.style.display = "none";
+    showPlantDiv.style.display = "none";
+    homeDiv.style.display = "block";
 }
 
 function newUser() {
     
 }
+floraDiv.addEventListener("click", event => floraPage());
 
 function floraPage() {
+    homeDiv.style.display = "none";
+    floraDiv.style.display = "block";
 
     fetch(houseplantURL)
         .then(response => response.json())
@@ -34,8 +42,8 @@ function displayAllPlants(results) {
 }
 
 function displaySinglePlant(event, plantData) {
-    floradiv.style.display = 'none';
-    showPlant.style.display = 'block'
+    floraDiv.style.display = 'none';
+    showPlantDiv.style.display = 'block'
     console.log(plantData)
 }
 

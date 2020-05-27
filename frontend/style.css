@@ -3,6 +3,8 @@ body {
     text-shadow: floralwhite 1px 1px;
     font-family: cursive;
     background-image: url(https://images.unsplash.com/photo-1523713990307-eb37e7e18240?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80);
+    background-size: cover;
+    background-color: olivedrab;
 }
 header {
     overflow: hidden;
@@ -18,7 +20,12 @@ header {
     font-family: inherit;  
   }
 
-
+#home-page img {
+    border-style: groove;
+    border-color: slategrey;
+    border-width: 3px;
+    margin: 15px;
+}
 li {
     display: flex;
     align-content: center;
