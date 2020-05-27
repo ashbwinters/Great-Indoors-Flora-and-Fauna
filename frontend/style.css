@@ -8,7 +8,7 @@ body {
 }
 header {
     overflow: hidden;
-    background-color: gainsboro;
+    background-color: gainsboro; opacity:0.6;
     font-size: 45px;
 }
 #navbar a {
@@ -26,9 +26,26 @@ header {
     border-width: 3px;
     margin: 15px;
 }
+
 li {
-    display: flex;
-    align-content: center;
+    display: flexbox;
+    justify-content: space-around; 
     font-size: 25px;
     padding: 18px;
+}
+
+#show-plant #image{
+
+}
+
+#plant-data {
+    background-color: thistle; opacity:0.8;
+    font-size: 30px;
+    padding: 24px 16px;
+    background-clip: content-box;
+}
+
+#login-page {
+    display: flexbox;
+    justify-content: flex-end;
 }
