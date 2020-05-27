@@ -6,7 +6,7 @@ class HouseplantsController < ApplicationController
     end
 
     def show
-        @Houseplant = Houseplant.find(params[:id])
-        render json: @Houseplant
+        @houseplant = Houseplant.find(params[:id])
+        render json: @houseplant, 
     end
 end

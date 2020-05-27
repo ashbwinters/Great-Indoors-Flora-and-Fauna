@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_224430) do
+ActiveRecord::Schema.define(version: 2020_05_27_030214) do
 
   create_table "gardens", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 2020_05_26_224430) do
     t.string "common_name"
     t.string "scientific_name"
     t.string "sun_requirements"
-    t.string "water_requirements"
     t.string "description"
     t.boolean "toxic_to_dogs"
     t.boolean "toxic_to_cats"

@@ -1,14 +1,14 @@
 class GardensController < ApplicationController
-    before_action :authenticate, only: [:create, :show, :update, :delete]
+    before_action :authenticate, only: [:create, :index, :update, :delete]
 
     def create
         @garden = Garden.create(garden_params)
         render status: :created
     end
 
-    def show
+    def index
         @garden = Garden.where(user_id: payload["user.id"])
-        render json: @garden 
+        render json: @garden, include: [:houseplants, :user]
     end
 end
 
