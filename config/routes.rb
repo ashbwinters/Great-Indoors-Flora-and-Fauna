@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :gardens, only: [:create, :index, :show, :update, :delete]
+  resources :houseplants, only: [:index, :show]
   resources :users, only: [:create]
+  post "login", to: "authentication#login"
 end

@@ -3,7 +3,9 @@ class UsersController < ApplicationController
         @user = User.create(
             username: params[:username],
             password: params[:password]
-        )
-        render json: {user: @user}, status: :created
+            )
+        render json: {user: @user, include: [:garden, :houseplants]}, status: :created
     end
 end
+
+

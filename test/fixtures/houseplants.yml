@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  common_name: MyString
+  scientific_name: MyString
+  sun_requirements: MyString
+  water_requirements: MyString
+  description: MyString
+  toxic_to_dogs: false
+  toxic_to_cats: false
+
+two:
+  common_name: MyString
+  scientific_name: MyString
+  sun_requirements: MyString
+  water_requirements: MyString
+  description: MyString
+  toxic_to_dogs: false
+  toxic_to_cats: false
