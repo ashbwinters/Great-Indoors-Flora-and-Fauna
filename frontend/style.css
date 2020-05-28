@@ -1,3 +1,60 @@
 body {
-    background-color: darkslategray;
+    color: darkslategray;
+    text-shadow: floralwhite 1px 1px;
+    font-family: cursive;
+    background-image: url(https://images.unsplash.com/photo-1523713990307-eb37e7e18240?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80);
+    background-size: cover;
+    background-color: olivedrab;
+}
+
+header {
+    background-color: gainsboro; opacity:0.6;
+    font-size: 55px;
+    text-align: center;
+}
+#navbar a {
+    float: none;
+    font-size: 20px;
+    text-align: center;
+    padding: 15px 18px;
+    text-decoration: none;
+}
+
+#home-page div {
+    background-color: gainsboro; opacity:0.7;
+}
+
+#home-page img {
+    border-style: groove;
+    border-color: slategrey;
+    border-width: 5px;
+    margin: 25px;
+}
+
+li {
+    display: flexbox;
+    justify-content: space-around; 
+    font-size: 25px;
+    padding: 25px;
+}
+
+#show-plant #image {
+    display: flex;
+    align-content: center;
+    padding: 30px 20px;
+}
+
+#plant-data {
+    background-color: thistle; opacity:0.8;
+    font-size: 30px;
+    padding: 30px 20px;
+    background-clip: content-box;
+    justify-content: space-evenly;
+}
+span {
+    justify-content: space-evenly;
+}
+#login-page {
+    display: flexbox;
+    justify-content: flex-end;
 }

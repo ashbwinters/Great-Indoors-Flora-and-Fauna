@@ -13,7 +13,7 @@ plant1 = Houseplant.create(
     description: "Aloe vera is an eye-catching perennial that displays lance-shape succulent leaves decorated with white spots and edged with small whitish teeth. The leaves are known for their gel-like sap often used to soothe burns and moisturize skin. Native to hot, dry regions of Africa, this herbaceous perennial prefers frost-free, sunny, well-drained sites where the night temperature never dips below 50 degrees F. Thankfully, adaptable aloe vera makes a great houseplant; use it on its own or let it add vertical interest to a container of vining houseplants, such as philodendron or ivy. Exceptionally easy to grow, aloe vera is a good choice for a new gardener.",
     toxic_to_dogs: 1,
     toxic_to_cats: 1,
-    image: "https://unsplash.com/photos/W79gBSNn2Kc" 
+    image: "https://images.unsplash.com/photo-1569869207875-f25b0bc299cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" 
 )
 
 plant2 = Houseplant.create(
@@ -23,7 +23,7 @@ plant2 = Houseplant.create(
     description: "This plant is extremely drought-tolerant, but its Achilles' heel is too much water. Snake plant needs well-drained potting mix that doesn't hold a lot of water. Ideally, snake plant likes to be in bright but indirect sunlight. However, you can park it in a dark corner and it'll be just fine. In less light, the color in some Sansevieria varieties can become washed out, and taller types can become leggy and floppy, but generally this isn't usually much of a problem.",
     toxic_to_dogs: 1,
     toxic_to_cats: 1,
-    image: "https://unsplash.com/photos/0Qar87UXlGA" 
+    image: "https://images.unsplash.com/photo-1513492080443-fe1a22559fd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80" 
 )
 
 plant3 = Houseplant.create(
@@ -33,8 +33,5 @@ plant3 = Houseplant.create(
     description: "One of the few houseplants that will bloom in low light, African violets grow well in bright east- or north-facing windows. Avoid locations where they will receive direct sunlight in the afternoon—too much sun can burn leaves and prevent the plants from blooming. Turn plants weekly to encourage even growth on all sides.",
     toxic_to_dogs: 0,
     toxic_to_cats: 0,
-    image: "https://unsplash.com/photos/qyP1ChHhGPM" 
+    image: "https://images.unsplash.com/photo-1581176626106-f50a118c50bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" 
 )
-
-
-mine = Garden.create(houseplant_id: 2, user_id: 1)

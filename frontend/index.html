@@ -15,8 +15,54 @@
             <a id="plants">Flora</a>
             <a id="garden">My Garden</a>
             <a id="login">Sign In</a>
+            <a id="create">Create an Account</a>
+            <a id="log-out">Log Out</a>
         </nav>
     </header>
-    
+    <main>
+        <div id="home-page">
+            <div>
+                <h1>Responsible Plant Care for Compassionate Pet Owners</h1>
+                <h2 id="greeting">Welcome Guest!</h2>
+            </div>
+            <img src="https://images.unsplash.com/photo-1509205477838-a534e43a849f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1596&q=80" alt="Harmonious dog and cat" width="70%" height="70%">
+        </div>
+        <div id="flora-page">
+            <ul id="all-plants"></ul>
+        </div>
+        <div id="show-plant">
+            <img id="image" src="" alt="" width="55%" height="55%">
+            <div id="plant-data">
+                <h2 id="common-name">Common Name Goes Here</h2>
+                <h3 id="scientific">Science</h3>
+                <p id="dog">Toxic to Dogs</p>
+                <p id="cats">Toxic to Cats</p>
+                <h4 id="description">Description goes here</h4>
+            </div>
+            <button id="add-button">Add to My Garden</button>
+        </div>
+        <div id="my-garden-page">
+
+        </div>
+        <div id="login-page">
+            <form id="login-form">
+                <label for="username">UserName</label>
+                <input name="username" id="username" required>
+                <label for="password">Password</label>
+                <input name="password" id="password" required>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div id="create-account">
+            <form id="create-account-form">
+                <label for="username">UserName</label>
+                <input name="username" id="username" required>
+                <label for="password">Password</label>
+                <input name="password" id="password" required>
+                <button type="submit">Sign Up</button>
+            </form> 
+        </div>
+    </main>
+    <footer>Photo by Alex Loup on Unsplash</footer>
 </body>
 </html>
