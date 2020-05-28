@@ -6,45 +6,54 @@ body {
     background-size: cover;
     background-color: olivedrab;
 }
+
 header {
-    overflow: hidden;
     background-color: gainsboro; opacity:0.6;
-    font-size: 45px;
+    font-size: 55px;
+    text-align: center;
 }
 #navbar a {
-    float: left;
-    font-size: 16px;
+    float: none;
+    font-size: 20px;
     text-align: center;
-    padding: 14px 16px;
+    padding: 15px 18px;
     text-decoration: none;
-    font-family: inherit;  
-  }
+}
+
+#home-page div {
+    background-color: gainsboro; opacity:0.7;
+}
 
 #home-page img {
     border-style: groove;
     border-color: slategrey;
-    border-width: 3px;
-    margin: 15px;
+    border-width: 5px;
+    margin: 25px;
 }
 
 li {
     display: flexbox;
     justify-content: space-around; 
     font-size: 25px;
-    padding: 18px;
+    padding: 25px;
 }
 
-#show-plant #image{
-
+#show-plant #image {
+    display: flex;
+    align-content: center;
+    padding: 30px 20px;
 }
 
 #plant-data {
     background-color: thistle; opacity:0.8;
     font-size: 30px;
-    padding: 24px 16px;
+    padding: 30px 20px;
     background-clip: content-box;
+    justify-content: space-evenly;
 }
-
+span {
+    justify-content: space-evenly;
+}
 #login-page {
     display: flexbox;
     justify-content: flex-end;

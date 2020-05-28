@@ -65,8 +65,8 @@ function displayImage(plantImage, plantName) {
 function displayNames(commonName, scientificName) {
     const common = document.getElementById("common-name");
     const scientific = document.getElementById("scientific");
-    common.innerText = commonName;
-    scientific.innerText = scientificName;
+    common.innerText = `Common Name: ${commonName}`;
+    scientific.innerText = ` Scientific Name: ${scientificName}`;
 }
 
 function toxicData(dog, cat) {
