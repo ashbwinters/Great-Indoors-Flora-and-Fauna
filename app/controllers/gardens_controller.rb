@@ -3,9 +3,9 @@ class GardensController < ApplicationController
 
     def create
         @garden = Garden.create(
-            user_id: params[:@user.id],
+            user_id: params[:user_id],
             houseplant_id: params[:houseplant_id])
-        render json: @garden.index
+        render json: {message: "Plant added!"}, status: :created
     end
 
     def index
@@ -19,3 +19,5 @@ class GardensController < ApplicationController
         render json: @garden.index
     end
 end
+
+

@@ -1,4 +1,5 @@
 const houseplantURL = "http://localhost:3000/houseplants";
+const greeting = document.getElementById("greeting");
 const homeButton = document.getElementById("home");
 const homeDiv = document.getElementById("home-page");
 const floraButton = document.getElementById('plants');
@@ -9,24 +10,38 @@ const signInButton = document.getElementById("login");
 const signInDiv = document.getElementById("login-page");
 const createAccountButton = document.getElementById("create");
 const createAccountDiv = document.getElementById("create-account");
+const logoutButton = document.getElementById("log-out");
 const showPlantDiv = document.getElementById('show-plant');
 
 home()
 
+function setLoginStatus() {
+    greeting.textContent = localStorage.getItem("token")
+        ? `Welcome, ${username}!`
+        : "Welcome, Guest!"
+}
+
 homeButton.addEventListener("click", event => home());
 
-function home () {
+function home() {
+    setLoginStatus();
+    togglePages(homeDiv);
+}
+
+function togglePages (activePage) {
+    homeDiv.style.display = "none";
     floraDiv.style.display = "none";
-    myGardenDiv.style.display = "none";
     showPlantDiv.style.display = "none";
-    homeDiv.style.display = "block";
+    myGardenDiv.style.display = "none";
+    signInDiv.style.display = "none";
+    createAccountDiv.style.display = "none";
+    activePage.style.display = "block";
 }
 
 floraButton.addEventListener("click", event => floraPage());
 
 function floraPage() {
-    homeDiv.style.display = "none";
-    floraDiv.style.display = "block";
+    togglePages(floraDiv);
     
     fetch(houseplantURL)
     .then(response => response.json())
@@ -47,8 +62,7 @@ function displayAllPlants(results) {
 }
 
 function displaySinglePlant(event, plantData) {
-    floraDiv.style.display = 'none';
-    showPlantDiv.style.display = 'block'
+    togglePages(showPlantDiv);
     displayImage(plantData.image, plantData.common_name);
     displayNames(plantData.common_name, plantData.scientific_name);
     toxicData(plantData.toxic_to_dogs, plantData.toxic_to_cats);
@@ -57,9 +71,8 @@ function displaySinglePlant(event, plantData) {
 }
 
 function displayImage(plantImage, plantName) {
-    const $image = document.getElementById("image");
-    $image.src = plantImage;
-    $image.alt = plantName;
+    const body = document.querySelector("body");
+    body.style.backgroundImage = `url("${plantImage}")`;
 }
 
 function displayNames(commonName, scientificName) {
@@ -70,7 +83,10 @@ function displayNames(commonName, scientificName) {
 }
 
 function toxicData(dog, cat) {
-    
+    const dogs = document.getElementById("dogs");
+    const cats = document.getElementById("cats");
+    if (!dog) {dogs.innerText = "Not Toxic to Dogs"};
+    if (!cat) {cats.innerText = "Not Toxic to Cats"};
 }
 
 function displayDescription(plantDescription) {
@@ -81,17 +97,48 @@ function displayDescription(plantDescription) {
 myGardenButton.addEventListener("click", event => showGarden());
 
 function showGarden() {
-    
+    togglePages(myGardenDiv)
+
+    // fetch("http://localhost:3000/gardens", {
+    // method: "GET",
+    // headers: {}
+    // })
 }
 
-signInButton.addEventListener("click", event => logIn());
+signInButton.addEventListener("click", event => logInPage(event));
 
-function logIn() {
-    
+function logInPage() {
+    togglePages(signInDiv);
+    const submitLogin = document.getElementById("login-form");
+    submitLogin.addEventListener("submit", event => confirmLogin(event))
 }
 
-createAccountButton.addEventListener("click", event => newUser());
+function confirmLogin(event) {
+    event.preventDefault();
+    const loginFormData = new FormData(event.target);
+    let username = loginFormData.get("username");
+    let password = loginFormData.get("password");
+    let loginData = {username, password};
+    sendLogin(loginData);
+}
 
-function newUser() {
+function sendLogin(loginData) {
+    // fetch("http://localhost:3000/login", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: {JSON.stringify(loginData)}
+    // })
+}
 
+createAccountButton.addEventListener("click", event => newUserPage(event));
+
+function newUserPage() {
+   togglePages(createAccountDiv);
+}
+
+logoutButton.addEventListener("click", event => logOut());
+
+function logOut() {
+    localStorage.removeItem("token");
+    home();
 }
