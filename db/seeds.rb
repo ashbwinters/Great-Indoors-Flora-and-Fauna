@@ -35,5 +35,3 @@ plant3 = Houseplant.create(
     toxic_to_cats: 0,
     image: "https://images.unsplash.com/photo-1581176626106-f50a118c50bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" 
 )
-
-
