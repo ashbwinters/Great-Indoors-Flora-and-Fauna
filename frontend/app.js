@@ -1,4 +1,4 @@
-const houseplantURL = "http://localhost:3000/houseplants";
+const mainURL = "http://localhost:3000/";
 const greeting = document.getElementById("greeting");
 const homeButton = document.getElementById("home");
 const homeDiv = document.getElementById("home-page");
@@ -17,7 +17,7 @@ home()
 
 function setLoginStatus() {
     greeting.textContent = localStorage.getItem("token")
-        ? `Welcome, ${username}!`
+        ? `Welcome Back!`
         : "Welcome, Guest!"
 }
 
@@ -43,7 +43,7 @@ floraButton.addEventListener("click", event => floraPage());
 function floraPage() {
     togglePages(floraDiv);
     
-    fetch(houseplantURL)
+    fetch(`${mainURL}houseplants`)
     .then(response => response.json())
     .then(results => displayAllPlants(results))
 }    
@@ -72,7 +72,7 @@ function displaySinglePlant(event, plantData) {
 
 function displayImage(plantImage, plantName) {
     const body = document.querySelector("body");
-    body.style.backgroundImage = `url("${plantImage}")`;
+    showPlantDiv.style.backgroundImage = `url("${plantImage}")`;
 }
 
 function displayNames(commonName, scientificName) {
@@ -99,41 +99,89 @@ myGardenButton.addEventListener("click", event => showGarden());
 function showGarden() {
     togglePages(myGardenDiv)
 
-    // fetch("http://localhost:3000/gardens", {
-    // method: "GET",
-    // headers: {}
-    // })
+    fetch("http://localhost:3000/gardenIndex", {
+    method: "GET",
+    headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
+    }).then(response => response.json())
+        .then(results => showGardenPlnats(results))
+}
+
+function showGardenPlnats(plants) {
+    const gardenContent = document.getElementById("garden-welcome");
+    if (plants.length == 0) {
+        gardenContent.innerText = "Visit the Flora Page to Create Your Indoor Garden!"}
+    else { displayAllPlants(plants) }
+
 }
 
 signInButton.addEventListener("click", event => logInPage(event));
 
 function logInPage() {
     togglePages(signInDiv);
-    const submitLogin = document.getElementById("login-form");
-    submitLogin.addEventListener("submit", event => confirmLogin(event))
 }
-
-function confirmLogin(event) {
+    
+const submitLogin = document.getElementById("login-form");
+submitLogin.addEventListener("submit", event => {
     event.preventDefault();
+    confirmLoginData(event)
+})
+
+
+function confirmLoginData(event) {
     const loginFormData = new FormData(event.target);
     let username = loginFormData.get("username");
     let password = loginFormData.get("password");
-    let loginData = {username, password};
-    sendLogin(loginData);
+    sendLogin(username, password);
 }
 
-function sendLogin(loginData) {
-    // fetch("http://localhost:3000/login", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: {JSON.stringify(loginData)}
-    // })
+function sendLogin(username, password) {
+    fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({username, password})
+    }).then(response => response.json())
+        .then(result => {
+            const {token} = result;
+            localStorage.setItem("token", token)
+        }).catch(error => console.log(error.message))
+        home();
 }
 
 createAccountButton.addEventListener("click", event => newUserPage(event));
 
 function newUserPage() {
    togglePages(createAccountDiv);
+}
+
+const submitAccount = document.getElementById("create-account-form");
+
+submitAccount.addEventListener("submit", event => {
+    event.preventDefault();
+    confirmAccountData(event)
+})
+
+
+function confirmAccountData(event) {
+    const createFormData = new FormData(event.target);
+    let username = createFormData.get("username");
+    let password = createFormData.get("password");
+    sendAccount(username, password);
+}
+
+function sendAccount(username, password) {
+    fetch("http://localhost:3000/users", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({user: 
+            {username, password}
+        }),
+    }).then(() => {
+        sendLogin(username, password)
+    }).catch(error => console.error(error.message))
 }
 
 logoutButton.addEventListener("click", event => logOut());

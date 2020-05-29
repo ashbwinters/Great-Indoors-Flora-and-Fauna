@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
+    def index
+        @users = User.all
+        render json: @users
+    end
+    
     def create
-        @user = User.create(
-            username: params[:username],
-            password: params[:password]
-            )
-        render json: {user: @user, include: [:garden, :houseplants]}, status: :created
+        @user = User.create(user_params)
+        render json: @user
     end
 end
 
+private 
 
+def user_params
+    params.require(:user).permit(:username, :password)
+end
