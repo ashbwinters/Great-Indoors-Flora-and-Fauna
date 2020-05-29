@@ -111,9 +111,7 @@ function addPlantToGarden(target) {
             garden: { houseplant_id: target.id }
         })
     }).then(response => response.json())
-        .then(() => {
-            target.innerContent = "Added to Garden"
-        })
+        .then(() => showGarden )
 }
 
 myGardenButton.addEventListener("click", event => showGarden());
