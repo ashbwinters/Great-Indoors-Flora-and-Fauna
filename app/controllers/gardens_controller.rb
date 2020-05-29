@@ -3,14 +3,19 @@ class GardensController < ApplicationController
 
     def create
         @garden = Garden.create(
-            user_id: params[:@user.id],
+            user_id: params[:user_id],
             houseplant_id: params[:houseplant_id])
-        render json: @garden.index
+        render json: {message: "Plant added!"}, status: :created
     end
 
     def index
-        @garden = Garden.where(user_id: @user.id)
-        render json: @garden, include: [:houseplants]
+        @gardens = Garden.all
+        render json: @gardens
+    end
+    
+    def index_by_user
+        @garden = Garden.where(user_id: :user_id)
+        render json: @garden
     end
 
     def delete
@@ -19,3 +24,5 @@ class GardensController < ApplicationController
         render json: @garden.index
     end
 end
+
+
