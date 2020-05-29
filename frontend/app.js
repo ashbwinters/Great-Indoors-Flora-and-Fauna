@@ -125,14 +125,17 @@ function showGarden() {
     method: "GET",
     headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
     }).then(response => response.json())
-        .then(results => showGardenPlants(results))
+        .then(userGardenData => showGardenPlants(userGardenData))
 }
 
-function showGardenPlants(plants) {
+function showGardenPlants(results) {
     const gardenWelcome = document.getElementById("garden-welcome");
-    if (plants.length == 0) {
+    if (results.length == 0) {
         gardenContent.innerText = "Visit the Flora Page to Create Your Indoor Garden!"}
-    else { displayAllPlants(plants, "garden-contents") }
+    else { 
+        let innerPlantData = results.map(result => result.houseplant)
+        displayAllPlants(innerPlantData, "garden-contents")
+    }
 }
 
 signInButton.addEventListener("click", event => logInPage(event));

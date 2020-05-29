@@ -13,7 +13,7 @@ class GardensController < ApplicationController
     
     def index_by_user
         @garden = Garden.where(user_id: @user.id)
-        render json: @garden
+        render json: @garden, include: [:houseplant]
     end
 
     def delete
