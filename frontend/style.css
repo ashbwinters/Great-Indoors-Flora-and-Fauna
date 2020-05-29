@@ -45,9 +45,11 @@ li {
     background-repeat: no-repeat;
 }
 
-#add-button {
-    display: flexbox;
-    justify-items: right;
+button {
+    font-family: cursive;
+    font-size: 20px;
+    color: slategrey;
+    background-color: gainsboro;
 }
 
 #plant-data {
@@ -57,15 +59,8 @@ li {
     background-clip: content-box;
     justify-content: space-around;
 }
-span {
-    justify-content: space-evenly;
-}
+
 #login-page {
     display: flexbox;
     justify-content: flex-end;
 }
-
-footer {
- flex-shrink: 0;
-}
-

@@ -16,6 +16,26 @@ plant1 = Houseplant.create(
     image: "https://images.unsplash.com/photo-1569869207875-f25b0bc299cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" 
 )
 
+plant3 = Houseplant.create(
+    common_name: "African Violet",
+    scientific_name: "Saintpaulia ionantha",
+    sun_requirements: "Any",
+    description: "One of the few houseplants that will bloom in low light, African violets grow well in bright east- or north-facing windows. Avoid locations where they will receive direct sunlight in the afternoon—too much sun can burn leaves and prevent the plants from blooming. Turn plants weekly to encourage even growth on all sides.",
+    toxic_to_dogs: 0,
+    toxic_to_cats: 0,
+    image: "https://images.unsplash.com/photo-1581176626106-f50a118c50bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" 
+    )
+    
+plant4 = Houseplant.create(
+    common_name: "Baby Rubber Plant",
+   scientific_name: "Peperomia",
+    sun_requirements "Any",
+    description: "Peperomias are one of the easiest houseplants to grow in your home. Hailing from areas like tropical cloud forests, where humidity is generally over 90%, peperomias prefer areas with 40 to 50% humidity, such as terrariums. Likewise, it is easy to grow peperomia in your bathroom because of the high humidity levels. However, most peperomias perform almost as well in less-moist areas of your house. Because these plants are used to growing on rotting trees and other wood, they are also accustomed to fairly dry and erratic growing conditions. This is why many peperomias are succulent in nature. When growing peperomias in containers, make sure to plant them in well-drained soils. A quick way to kill peperomias is with too much water or too heavy of soil. They also have very few roots, so peperomias generally do best when grown in small containers.",
+    toxic_to_dogs: 0,
+    toxic_to_cats: 0,
+    image:"https://images.unsplash.com/photo-1477554193778-9562c28588c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80"
+)
+            
 plant2 = Houseplant.create(
     common_name: "Snake Plant",
     scientific_name: "Sansevieria trifasciata",
@@ -26,12 +46,72 @@ plant2 = Houseplant.create(
     image: "https://images.unsplash.com/photo-1513492080443-fe1a22559fd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80" 
 )
 
-plant3 = Houseplant.create(
-    common_name: "African Violet",
-    scientific_name: "Saintpaulia ionantha",
-    sun_requirements: "Any",
-    description: "One of the few houseplants that will bloom in low light, African violets grow well in bright east- or north-facing windows. Avoid locations where they will receive direct sunlight in the afternoon—too much sun can burn leaves and prevent the plants from blooming. Turn plants weekly to encourage even growth on all sides.",
-    toxic_to_dogs: 0,
-    toxic_to_cats: 0,
-    image: "https://images.unsplash.com/photo-1581176626106-f50a118c50bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80" 
+plant5 = Houseplant.create(
+    common_name: "Spider Plant",
+    scientific_name: "Chlorophytum comosum",
+    sun_requirements: "Part Sun",
+    description: "A spider plant likes bright, indirect light. Avoid direct sunlight as it has the potential to scorch the leaves. If bright indirect light isn't an option, spider plants will grow in low light but they will grow slowly and may not produce plantlets. Spider plants grow well when their soil dries between watering. Check the soil every 4 or 5 days. If it is dry to the touch, water plants thoroughly, allowing excess water to drain out of the bottom of the pot.",
+    toxic_to_dogs: 1,
+    toxic_to_cats: 1,
+    image: "https://images.unsplash.com/photo-1575032558058-683487d88fb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+)
+
+plant6 = Houseplant.create(
+    common_name: "",
+    scientific_name: "",
+    sun_requirements: "",
+    description: "",
+    toxic_to_dogs: 1,
+    toxic_to_cats: 1,
+    image: ""
+)
+
+plant7 = Houseplant.create(
+    common_name: "",
+    scientific_name: "",
+    sun_requirements: "",
+    description: "",
+    toxic_to_dogs: 1,
+    toxic_to_cats: 1,
+    image: ""
+)
+
+plant8 = Houseplant.create(
+    common_name: "",
+    scientific_name: "",
+    sun_requirements: "",
+    description: "",
+    toxic_to_dogs: 1,
+    toxic_to_cats: 1,
+    image: ""
+)
+
+plant9 = Houseplant.create(
+    common_name: "",
+    scientific_name: "",
+    sun_requirements: "",
+    description: "",
+    toxic_to_dogs: 1,
+    toxic_to_cats: 1,
+    image: ""
+)
+
+plant10 = Houseplant.create(
+    common_name: "",
+    scientific_name: "",
+    sun_requirements: "",
+    description: "",
+    toxic_to_dogs: 1,
+    toxic_to_cats: 1,
+    image: ""
+)
+
+plant11 = Houseplant.create(
+    common_name: "",
+    scientific_name: "",
+    sun_requirements: "",
+    description: "",
+    toxic_to_dogs: 1,
+    toxic_to_cats: 1,
+    image: ""
 )

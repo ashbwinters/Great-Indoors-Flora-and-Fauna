@@ -45,12 +45,13 @@ function floraPage() {
     
     fetch(`${mainURL}houseplants`)
     .then(response => response.json())
-    .then(results => displayAllPlants(results))
+    .then(results => displayAllPlants(results, "flora-page"))
 }    
 
-function displayAllPlants(results) {
+function displayAllPlants(results, listId) {
+    document.querySelectorAll("li").forEach(item => item.remove())
     results.forEach(result => {
-        const ul = document.getElementById('flora-page');
+        const ul = document.getElementById(listId);
         const li = document.createElement('li');
         li.innerHTML = `
         <img src="${result.image}" alt="${result.common_name}" width="250" height"250">
@@ -67,11 +68,10 @@ function displaySinglePlant(event, plantData) {
     displayNames(plantData.common_name, plantData.scientific_name);
     toxicData(plantData.toxic_to_dogs, plantData.toxic_to_cats);
     displayDescription(plantData.description)
-    
+    addPlantIdToAddButton(plantData.id)
 }
 
-function displayImage(plantImage, plantName) {
-    const body = document.querySelector("body");
+function displayImage(plantImage) {
     showPlantDiv.style.backgroundImage = `url("${plantImage}")`;
 }
 
@@ -94,24 +94,45 @@ function displayDescription(plantDescription) {
     $description.innerText = plantDescription;
 }
 
+function addPlantIdToAddButton(plantId) {
+    const addButton = document.querySelector(".add-button");
+    addButton.id = plantId;
+    addButton.addEventListener("click", event => addPlantToGarden(event.target))
+}
+
+function addPlantToGarden(target) {
+    fetch("http://localhost:3000/gardens", {
+        method: "POST",
+        headers: { 
+            "Authorization": `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            garden: { houseplant_id: target.id }
+        })
+    }).then(response => response.json())
+        .then(() => {
+            target.innerContent = "Added to Garden"
+        })
+}
+
 myGardenButton.addEventListener("click", event => showGarden());
 
 function showGarden() {
     togglePages(myGardenDiv)
 
-    fetch("http://localhost:3000/gardenIndex", {
+    fetch(`http://localhost:3000/gardenIndex`, {
     method: "GET",
     headers: { "Authorization": `Bearer ${localStorage.getItem("token")}` }
     }).then(response => response.json())
-        .then(results => showGardenPlnats(results))
+        .then(results => showGardenPlants(results))
 }
 
-function showGardenPlnats(plants) {
-    const gardenContent = document.getElementById("garden-welcome");
+function showGardenPlants(plants) {
+    const gardenWelcome = document.getElementById("garden-welcome");
     if (plants.length == 0) {
         gardenContent.innerText = "Visit the Flora Page to Create Your Indoor Garden!"}
-    else { displayAllPlants(plants) }
-
+    else { displayAllPlants(plants, "garden-contents") }
 }
 
 signInButton.addEventListener("click", event => logInPage(event));
@@ -161,7 +182,6 @@ submitAccount.addEventListener("submit", event => {
     event.preventDefault();
     confirmAccountData(event)
 })
-
 
 function confirmAccountData(event) {
     const createFormData = new FormData(event.target);
