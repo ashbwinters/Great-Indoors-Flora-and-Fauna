@@ -34,20 +34,32 @@ header {
 
 li {
     display: flexbox;
-    justify-content: space-around; 
+    justify-content: space-between; 
     font-size: 25px;
     padding: 25px;
     background-color: gainsboro; opacity: 0.7;
     list-style-type: none;
+    margin: 20px 25px;
 }
+li * {
+    margin: inherit;
+}
+
+img {
+    opacity: 1;
+}
+
 #show-plant {
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-#add-button {
-    display: flexbox;
-    justify-items: right;
+button {
+    font-family: cursive;
+    font-size: 20px;
+    color: slategrey;
+    background-color: gainsboro;
+    margin: 15px;
 }
 
 #plant-data {
@@ -57,15 +69,13 @@ li {
     background-clip: content-box;
     justify-content: space-around;
 }
-span {
-    justify-content: space-evenly;
-}
+
 #login-page {
     display: flexbox;
-    justify-content: flex-end;
+    justify-content: center;
 }
-
-footer {
- flex-shrink: 0;
+form {
+    font-size: 20px;
+    padding: 15px 20px;
+    margin: 15px 25px;
 }
-
